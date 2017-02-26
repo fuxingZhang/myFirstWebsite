@@ -1,6 +1,13 @@
 body{
     font-family:"微软雅黑";
 }
+@media only screen and (max-width:767px){
+    body{ width: 760px; }
+
+}
+@media (min-width: 640px)and(max-width: 1024px){
+    body{width: 1200px;}
+}
 .topbox{
     width: 100%;
     height:82px;   /*62+10*2=82 */
@@ -36,7 +43,7 @@ body{
 .topnav ul{
     position: absolute;
     display: none;
-    /*z-index: 999;*/
+    z-index: 999;
 }
 .topnav a:hover{
     color: #0061ad;
@@ -44,18 +51,18 @@ body{
 .topnav li a:hover{
     font-size: 15px;
     /*background:#0061ad;*/
-    background:rgba(1,70,155,0.6);
-    color: #fff;
+    background:rgba(255,0,0,0.6);
+    color: white;
 }
 .topnav li a{
      font-size: 15px;
-     color:#fff;
+     color:black;
 }
 .topnav ul li {
     height: 30px;
 }
 .topnav ul li a{
-    background:#0061ad;
+    background:#FFB200;
     width: 150px;
     height: 30px;
     text-align: center;
@@ -66,3 +73,62 @@ body{
     color:#01469b;
 }
 
+/*--------大条幅--------*/
+.bannerbox {
+    width: 100%;
+    background: #04729b;
+    height: 520px;
+    overflow: hidden;
+}
+.banner {
+    width:1920px;
+    height: 520px;
+    margin:0 auto;
+    position:relative;
+    left: 50%;
+    margin-left: -960px;
+    overflow:hidden;
+    margin-bottom: 15px;
+}
+.banner .num {
+    overflow:hidden;
+    height: 25px;
+    position: absolute;
+    bottom:0px;
+    left: 50%;
+    margin-left:-36px;
+    /*zoom:1;*/
+    /*z-index:3;*/
+}
+.banner .num li {
+    width: 10px;
+    height: 10px;
+    line-height: 25px;
+    background: #fff;
+    margin-right: 10px;
+    border-radius:50%;
+    cursor:pointer;
+    float: left;
+}
+.banner .num li.on {
+    background: #2d7dbb;
+}
+.banner .prev,
+.banner .next {
+    width: 40px;
+    height: 100px;
+    background: url(../images/btn.png); 
+    position: absolute;
+    top: 180px;
+}
+.banner .prev {
+    left: 0px;
+}
+.banner .next {
+    right: 0px;
+    background-position: right;
+}
+@media (min-width:640px) and (max-width:1440px){
+    .banner .prev { left:400px; }
+    .banner .next { right:400px; background-position: right ;}
+}
