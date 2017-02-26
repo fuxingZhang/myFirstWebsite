@@ -1,0 +1,9 @@
+body{ padding: 0; margin: 0; font-family:"微软雅黑";}
+img{ display: block; border:none;}
+h1,ul,li,input{ padding: 0; margin: 0;}
+ul,li{ list-style: none;}
+input{ border: none;}
+a{ text-decoration: none;}
+.clearfix{ clear: both;}
+@media only screen and (max-width: 767px){body{width:1200px;}}
+@media (min-width:640px) and (max-width:1024px){body{width:1200px;}}
