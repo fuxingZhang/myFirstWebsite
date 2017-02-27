@@ -127,6 +127,7 @@ body{
     background: url(../images/btn.png); 
     position: absolute;
     top: 140px;
+    opacity: 0.5;
 }
 .banner .prev {
     left: 0px;
@@ -138,4 +139,68 @@ body{
 @media (min-width:640px) and (max-width:1440px){
     .banner .prev { left:400px; }
     .banner .next { right:400px; background-position: right ;}
+}
+.footer{
+    margin-top: 10px;
+    border-top: solid 1px #ccc;
+    background-color:  #2d7dbb;
+    width: 100%;
+    height: 88px;
+    position: relative;
+}
+.footerbox{
+    position: absolute;
+    width: 1200px;
+    height: 88px;
+    left: 50%;
+    margin-left:-600px;
+    overflow: hidden;
+    font-size: 13px;
+}
+.footer_left{
+    height: 88px;
+    width: 400px;
+}
+.footer_left img{
+    display: block;
+    margin: 4px auto;
+}
+.footer_right{
+    width: 800px;
+    height: 88px;
+    color: white;
+    padding-top: 8px;
+    text-indent:27px;
+    letter-spacing:1px;
+    line-height: 200%;
+}
+
+/*section*/
+
+.section{
+    position: relative;
+    width: 1200px;
+    height: 500px;
+    margin: 20px auto;
+    /*border: 1px solid black;*/
+}
+.section .trans_img{
+    position: absolute;
+    text-align: center;
+    margin: 50px;
+    perspective: 300px;
+    perspective-origin: 100px 100px;
+}
+.section .trans_img p {
+    color: orange;
+    font-weight: bold;
+    font-size: 18px;
+    font-style: italic;
+}
+.section .trans_img img {
+    transition: all 3s;
+    /*border:1px solid black;*/
+}
+.section .trans_img img:hover {
+    transform: rotateX(90deg);
 }
