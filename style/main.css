@@ -182,14 +182,18 @@ body{
     width: 1200px;
     height: 500px;
     margin: 20px auto;
-    /*border: 1px solid black;*/
+    /*border: 1px dashed black;*/
 }
 .section .trans_img{
-    position: absolute;
+    width: 300px;
+    /*height: 300px;*/
+    display: inline-block;
     text-align: center;
-    margin: 50px;
+    margin-left: 70px;
+    margin-top: 70px;
     perspective: 300px;
     perspective-origin: 100px 100px;
+    /*border: 1px dashed black;*/
 }
 .section .trans_img p {
     color: orange;
@@ -198,9 +202,23 @@ body{
     font-style: italic;
 }
 .section .trans_img img {
+    margin-left: 50px;
     transition: all 3s;
     /*border:1px solid black;*/
 }
 .section .trans_img img:hover {
     transform: rotateX(90deg);
+}
+.section .trans_img2{
+    width: 300px;
+    /*height: 300px;*/
+    display: inline-block;
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 70px;
+    color: orange;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    /*border: 1px dashed black;*/
 }
