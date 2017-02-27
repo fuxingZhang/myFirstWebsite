@@ -11,12 +11,7 @@
 	<link rel="stylesheet" href="style/cssReset.css">
 	<link rel="stylesheet" href="style/common.css">
 	<link rel="stylesheet" href="style/main.css">
-	<!-- <script src="js/jquery-3.1.1.min.js"></script> -->
-    <script src="js/jquery.js"></script>
-	<script src="js/jquery.superslide.2.1.1.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/jquery.validate.unobtrusive.min.js"></script>
-    <script src="js/jquery.unobtrusive-ajax.min.js"></script>
+	<script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/zfx.js"></script>
 </head>
 <body>
@@ -27,7 +22,7 @@
 			</div>
 			<ul class="topnavbox fr">
 				<li class="topnav">
-					<a href="topon">首页</a>
+					<a class="topon" href="">首页</a>
 				</li>
 				<li class="topnav">
 					<a href="html/html.html">HTML5</a>
@@ -83,11 +78,11 @@
 			</ul>
 		</div>	
 	</div>
-	<!-- <div class="clearfix"></div> -->
+	<div class="clearfix"></div>
 		
 	<div class="bannerbox">
 		<div class="banner">
-			<ul class="51buypic">
+			<ul class="pic">
 				<li>
 					<a href="">
 						<img src="images/1.jpg" alt="">
@@ -104,10 +99,13 @@
 					</a>
 				</li>
 			</ul>
-			<a class="prev" href=""></a>
-			<a class="next" href=""></a>
+			<span class="prev"></span>
+			<span class="next"></span>
 			<div class="num">
 				<ul>
+					<li class="on" title="0"></li>
+					<li title="1"></li>
+					<li title="2"></li>
 				</ul>
 			</div>
 		</div>

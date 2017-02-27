@@ -10,7 +10,7 @@ body{
 }
 .topbox{
     width: 100%;
-    height:82px;   /*62+10*2=82 */
+    height:78px;   /*62+8*2=78 */
     margin: 0 auto;
     border-bottom: 1px solid #ccc;
 }
@@ -20,7 +20,7 @@ body{
     overflow: hidden;
 }
 .topleft{
-    padding:10px 0;
+    padding:8px 0;
 }
 .topleft img{
     vertical-align: middle;
@@ -32,8 +32,8 @@ body{
 }
 .topnav a{
     width: 150px;
-    height: 82px;
-    line-height: 82px;
+    height: 78px;
+    line-height: 78px;
     color: #333;
     font-size: 15px;
     text-align: center;
@@ -69,26 +69,33 @@ body{
     line-height: 30px;
 }
 .topnav .topon{
-    background: url(images/topon.png) no-repeat center 66px;
+    background: url(../images/topon.png) no-repeat center 65px;
     color:#01469b;
 }
 
 /*--------大条幅--------*/
 .bannerbox {
     width: 100%;
-    background: #04729b;
-    height: 520px;
+    /*background: #04729b;*/
+    height: 380px;
     overflow: hidden;
 }
 .banner {
     width:1920px;
-    height: 520px;
+    height: 380px;
     margin:0 auto;
     position:relative;
     left: 50%;
     margin-left: -960px;
     overflow:hidden;
     margin-bottom: 15px;
+}
+.banner .pic{
+    position: absolute;
+    width: 5760px;
+}
+.banner .pic li img{
+    float: left;
 }
 .banner .num {
     overflow:hidden;
@@ -97,8 +104,8 @@ body{
     bottom:0px;
     left: 50%;
     margin-left:-36px;
-    /*zoom:1;*/
-    /*z-index:3;*/
+    zoom:1;
+    z-index:3;
 }
 .banner .num li {
     width: 10px;
@@ -119,14 +126,14 @@ body{
     height: 100px;
     background: url(../images/btn.png); 
     position: absolute;
-    top: 180px;
+    top: 140px;
 }
 .banner .prev {
     left: 0px;
 }
 .banner .next {
     right: 0px;
-    background-position: right;
+    /*background-position: right;*/
 }
 @media (min-width:640px) and (max-width:1440px){
     .banner .prev { left:400px; }
