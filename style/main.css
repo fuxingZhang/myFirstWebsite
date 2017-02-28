@@ -6,7 +6,7 @@ body{
 
 }
 @media (min-width: 640px)and(max-width: 1024px){
-    body{width: 1200px;}
+    body{width: 1000px;}
 }
 .topbox{
     width: 100%;
