@@ -156,8 +156,9 @@ body{
     position: absolute;
     width: 1200px;
     height: 88px;
-    left: 50%;
-    margin-left:-600px;
+    /*left: 50%;
+    margin-left:-600px;*/
+    margin: 0 auto;
     overflow: hidden;
     font-size: 13px;
 }
