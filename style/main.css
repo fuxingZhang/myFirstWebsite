@@ -180,45 +180,104 @@ body{
 .section{
     position: relative;
     width: 1200px;
-    height: 500px;
+    height: 700px;
     margin: 20px auto;
     /*border: 1px dashed black;*/
 }
 .section .trans_img{
-    width: 300px;
-    /*height: 300px;*/
-    display: inline-block;
+    width: 350px;
+    height: 400px;
     text-align: center;
-    margin-left: 70px;
-    margin-top: 70px;
-    perspective: 300px;
-    perspective-origin: 100px 100px;
-    /*border: 1px dashed black;*/
-}
-.section .trans_img p {
+    margin-left: 40px;
+    margin-top: 50px;
     color: orange;
     font-weight: bold;
     font-size: 18px;
     font-style: italic;
+    /*border: 1px dashed black;*/
 }
-.section .trans_img img {
+
+/*旋转1*/
+
+.trans_img1 {
+    padding-left: 30px;
+    padding-top: 10px;
+    perspective: 300px;
+    perspective-origin: 100px 100px;
+}
+.section .trans_img1 img {
     margin-left: 50px;
     transition: all 3s;
     /*border:1px solid black;*/
 }
-.section .trans_img img:hover {
+.section .trans_img1 img:hover {
     transform: rotateX(90deg);
 }
-.section .trans_img2{
+
+/*旋转2*/
+
+.trans_img2 {
     width: 300px;
-    /*height: 300px;*/
-    display: inline-block;
-    text-align: center;
-    margin-left: 70px;
-    margin-top: 70px;
-    color: orange;
-    font-size: 18px;
-    font-weight: bold;
-    font-style: italic;
-    /*border: 1px dashed black;*/
+    height: 300px;
+    position: relative;
+    margin: 10px auto;
+}
+
+.trans_img2::after, .trans_img2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 150px;
+}
+
+.trans_img2::after {
+    background: url(../images/musicb.jpg) no-repeat;
+    border-radius: 150px;
+    /*border: 1px solid #CCC;*/
+    transform-origin: center bottom;
+    transition: all 1s;
+}
+
+.trans_img2::before {
+    background: url(../images/musict.jpg) no-repeat;
+}
+
+.trans_img2:hover::after {
+    transform: rotateX(-180deg);
+}
+
+/*旋转3*/
+.trans_img3 {
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    position: relative;
+}
+.trans_img3::before, .trans_img3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 150px;
+    backface-visibility: hidden;
+    transition: all 0.6s;
+}
+.trans_img3::before {
+    background: url(../images/bg.png) left top;
+    transform: rotateY(0deg);
+}
+.trans_img3::after {
+    background: url(../images/bg.png) right top;
+    transform: rotateY(180deg);
+}
+.trans_img3:hover::before {
+    transform: rotateY(180deg);
+}
+.trans_img3:hover::after {
+    transform: rotateY(0deg);
 }
