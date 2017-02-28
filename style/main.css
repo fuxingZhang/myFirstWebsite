@@ -144,6 +144,10 @@ body{
     margin-top: 10px;
     border-top: solid 1px #ccc;
     background-color:  #2d7dbb;
+    background:linear-gradient(#2d7dbb 0%, #000 80%);
+    /*background: linear-gradient(to top right, #000, #f00 50%, #090);*/
+    /*用百分比指定起止色位置。*/
+    background:linear-gradient(to top right,#F78F96 1%,#2d7dbb);   
     width: 100%;
     height: 88px;
     position: relative;
@@ -180,9 +184,9 @@ body{
 .section{
     position: relative;
     width: 1200px;
-    height: 700px;
+    height: 900px;
     margin: 20px auto;
-    /*border: 1px dashed black;*/
+    border: 1px dashed black;
 }
 .section .trans_img{
     width: 350px;
@@ -280,4 +284,175 @@ body{
 }
 .trans_img3:hover::after {
     transform: rotateY(0deg);
+}
+
+/*翻滚立方体1*/
+.section .trans_box{
+    text-align: center;
+    color: orange;
+    font-weight: bold;
+    font-size: 18px;
+    font-style: italic;
+}
+.section .trans_box p{
+    margin-left: 100px;
+}
+.section .trans_box ul {
+    width: 200px;
+    height: 200px;
+    margin-top: 70px;
+    margin-left: 100px;
+    position: relative;
+    transition: all 6s;
+    transform-style: preserve-3d;
+    /*border: 1px dashed black;*/
+}
+.section .trans_box ul li {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 200px;
+    color: white;
+    font-size:40px;
+    position: absolute;
+}
+.section .trans_box ul li:nth-child(1) {
+    transform: rotateX(0deg) translateZ(100px);
+    background:rgba(255,0,0,.6) ;
+}
+.section .trans_box ul li:nth-child(2) {
+    background:rgba(0,255,0,.6);
+    transform: rotateX(-90deg) translateZ(100px);
+}
+.section .trans_box ul li:nth-child(3) {
+    background:rgba(0,0,255,.6);
+    transform: rotateX(-180deg) translateZ(100px);
+}
+.section .trans_box ul li:nth-child(4) {
+    background:rgba(0,255,255,.6);
+    transform: rotateX(-270deg) translateZ(100px);
+}
+.section .trans_box ul li:nth-child(5) {
+    background:rgba(255,0,255,.6);
+    transform: rotateY(-90deg) translateZ(100px);
+}
+.section .trans_box ul li:nth-child(6) {
+    background:rgba(23,0,45,.6);
+    transform: rotateY(90deg) translateZ(100px);
+}
+.section .trans_box ul:hover {
+    transform: rotateX(360deg)  rotateY(360deg);
+}
+
+/*3D立体动态旋转*/
+@keyframes rotate{
+    0%{
+        transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform:rotateX(360deg) rotateY(360deg);
+    }
+}
+.section .wrap{
+    text-align: center;
+    color: orange;
+    font-weight: bold;
+    font-size: 18px;
+    font-style: italic;
+    /*background:linear-gradient(#ff0 0%, #000 80%);*/
+    margin-top:30px;
+    margin-left: 200px;
+    perspective: 1000px; /* 视图距元素的距离 相当于摄像机 */
+    /*border: 1px dashed black;*/
+}
+.section .wrap p{
+    text-align: center;
+    height: 100px;
+    margin-top:-20px;
+}
+.section .cube{
+    width:200px;
+    height:200px;
+    position:relative;
+    color:#fff;
+    font-size:36px;
+    font-weight:bold;
+    text-align:center;
+    line-height:200px;
+    transform-style:preserve-3d; /* 默认flat 2D */
+    transform:rotateX(-30deg) rotateY(-70deg); 
+    animation:rotate 20s infinite linear; /*播放时间 播放次数为循环 缓动效果为匀速 */
+}
+.section .cube > div{
+    width:100%;
+    height:100%;
+    border:1px solid #fff;
+    position:absolute;
+    background-color:#333;
+    opacity:.6;
+    transition:transform 0.4s ease-in;
+}
+.section .cube .out-front{
+    transform: translateZ(100px);
+}
+.section .cube .out-back{
+    transform: translateZ(-100px) rotateY(180deg);
+}
+.section .cube .out-left{
+    transform: translateX(-100px) rotateY(-90deg);
+}
+.section .cube .out-right{ 
+    transform: translateX(100px) rotateY(90deg);
+}
+.section .cube .out-top{
+    transform: translateY(-100px) rotateX(90deg);
+}
+.section .cube .out-bottom{
+    transform: translateY(100px) rotateX(-90deg);
+}
+.section .cube > span{
+    display:block;
+    width:100px;
+    height:100px;
+    border:1px solid black;
+    background-color:#999;
+    position:absolute;
+    top:50px;
+    left:50px;
+}
+.section .cube .in-front{
+    transform: translateZ(50px);
+}
+.section .cube .in-back{
+    transform: translateZ(-50px) rotateY(180deg);
+}
+.section .cube .in-left{
+    transform: translateX(-50px) rotateY(-90deg);
+}
+.section .cube .in-right{
+    transform: translateX(50px) rotateY(90deg);
+}
+.section .cube .in-top{
+    transform: translateY(-50px) rotateX(90deg);
+}
+.section .cube .in-bottom{
+    transform: translateY(50px) rotateX(-90deg);
+}
+.section .wrap:hover .out-front{
+    transform: translateZ(200px);
+}
+.section .wrap:hover .out-back{
+    transform: translateZ(-200px) rotateY(180deg);
+}
+.section .wrap:hover .out-left{
+    transform: translateX(-200px) rotateY(-90deg);
+}
+.section .wrap:hover .out-right{
+    transform: translateX(200px) rotateY(90deg);
+}
+.section .wrap:hover .out-top{
+    transform: translateY(-200px) rotateX(90deg);
+}
+.section .wrap:hover .out-bottom{
+    transform: translateY(200px) rotateX(-90deg);
 }
