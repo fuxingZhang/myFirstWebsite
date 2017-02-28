@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style>
+body{margin:0;padding:0 0 12px 0;font-size:12px;line-height:22px;font-family:"\5b8b\4f53","Arial Narrow";background:#fff;}
+form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+input,select{font-size:12px;line-height:16px;}
+img{border:0;}
+ul,li{list-style-type:none;}
+a {color:#00007F;text-decoration:none;}
+a:hover {color:#bd0a01;text-decoration:underline;}
+
+.box {
+    width: 150px;
+	margin: 100px auto;
+}
+.menu{
+	overflow:hidden;
+	border-color: #C4D5DF;
+    border-style: solid;
+    border-width: 0 1px 1px;
+}
+.menu li.level1 a{
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    background:#EBF3F8;
+	font-weight:700;
+    color: #5893B7;
+	text-indent: 14px;
+	border-top: 1px solid #C4D5DF;
+}
+.menu li.level1 a:hover{text-decoration:none;}
+.menu li.level1 a.current{background:#B1D7EF;}
+.menu li ul{overflow:hidden;}
+.menu li ul.level2{display:none;}
+.menu li ul.level2 li a{
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    background:#ffffff;
+	font-weight:400;
+    color: #42556B;
+	text-indent: 18px;
+	border-top: 0px solid #ffffff;
+    overflow: hidden;
+}
+.menu li ul.level2 li a:hover{
+	color:#f60;
+}
+</style>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".level1 > a").click(function(){
+		$(this).addClass("current")   
+		.next().show()               
+		.parent().siblings().children("a").removeClass("current")    
+		.next().hide();              
+		return false;
+	});
+});
+</script>
+
+</head>
+<body>
+
+<div class="box">
+	<ul class="menu">
+		<li class="level1">
+			<a href="#none">电脑办公</a>
+			<ul class="level2">
+				<li><a href="#none">笔记本</a></li>
+				<li><a href="#none">配件</a></li>
+				<li><a href="#none">外设</a></li>
+				<li><a href="#none">耗材</a></li>
+			</ul>
+		</li>
+		<li class="level1">
+			<a href="#none">家装建材</a>
+			<ul class="level2">
+				<li><a href="#none">家居</a></li>
+				<li><a href="#none">家具</a></li>
+				<li><a href="#none">家装</a></li>
+				<li><a href="#none">厨具</a></li>
+			</ul>
+		</li>
+		<li class="level1">
+			<a href="#none">生活娱乐</a>
+			<ul class="level2">
+				<li><a href="#none">机票</a></li>
+				<li><a href="#none">酒店</a></li>
+				<li><a href="#none">旅游</a></li>
+				<li><a href="#none">生活</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            margin-top: 100px;
+            margin-left: 400px;
+            width: 400px;
+            height: 400px;
+        }
+        p{
+            margin-left: 100px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            function max1(str){
+                var obj={};
+                var letter;
+                for (var i = 0; i < str.length; i++) {
+                    letter=str[i];
+                    if (!obj[letter]) {
+                        obj[letter]=1;
+                    }else{
+                        obj[letter]++;
+                    }
+                }
+                var max_key,max_num=0;
+                for(key in obj){
+                    if (max_num<obj[key]) {
+                        max_num=obj[key];
+                        max_key=key;
+                    }
+                }
+                var txt=document.getElementById("txta");
+                txt.innerHTML=("出现次数最多的字符："+max_key+"，出现的次数"+max_num);
+            }
+            var btn=document.getElementById("btn");
+            btn.onclick=function(){
+                var txt=document.getElementById("txt").value;
+                max1(txt);
+            };
+        };
+    	
+    </script>
+</head>
+<body>
+    <div>
+        <p>请输入一串字符</p>
+        <input id="txt" type="text" size="40px">
+        <input id="btn" type="button" value="提交">
+        <textarea id="txta" style="display: block;margin-top: 30px;" cols="48px" rows="10px"></textarea>
+    </div>
+    
+</body>
+</html>
