@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#parent {width:600px; height:20px; background:#ccc; position:relative; margin:10px auto;}
+#div1 { width:20px; height:20px; background:red; position:absolute; left:0; top:0;}
+#div2 { width:200px; height:300px; border:1px solid black; overflow:hidden; position:relative;}
+#div3 { position:absolute; left:0; top:0; padding:4px;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	var oParent=document.getElementById('parent');
+	var disX=0;
+	var disY=0;
+	
+	oDiv.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		disX=oEvent.clientX-oDiv.offsetLeft;
+	    				
+		document.onmousemove=function (ev)   //使用document,解决移动guokuai
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+						
+			if(l<0)
+			{
+				l=0;
+				
+			}
+			if(l>oParent.offsetWidth-oDiv.offsetWidth)
+			{
+				l=oParent.offsetWidth-oDiv.offsetWidth;
+			}
+			
+			oDiv.style.left=l+'px';
+			
+			var scale=l/(oParent.offsetWidth-oDiv.offsetWidth);
+			document.title=scale;
+			
+			oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+			
+		};
+		
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;  //不留垃圾		
+		};
+		
+		return false;//阻止默认事件，解决FF空DIV的拖拽
+	};
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div id="parent">
+    <div id="div1"></div>
+</div>
+<div id="div2">
+    <div id="div3"> 
+    有人说，“努力”与“拥有”是人生一左一右的两道风景。但我以为，人生最美最不能逊色的风景应该是努力。努力是人生的一种精神状态，是对生命的一种赤子之情。努力是拥有之母，拥有是努力之子。一心努力可谓条条大路通罗马，只想获取可谓道路逼仄，天地窄小。所以，与其规定自己一定要成为一个什么样的人物，获得什么东西，不如磨练自己做一个努力的人。志向再高，没有努力，志向终难坚守；没有远大目标，因为努力，终会找到奋斗的方向。做一个努力的人，可以说是人生最切实际的目标，是人生最大的境界。
+
+　　许多人因为给自己定的目标太高太功利，因为难以成功而变得灰头土脸，最终灰心失望。究其原因，往往就是因为太关注拥有，而忽略做一个努力的人。对于今天的孩子们，如果只关注他们将来该做个什么样的人物，不把意志品质作为一个做人的目标提出来，最终我们只能培养出狭隘、自私、脆弱和境界不高的人。遗憾的是，我们在这方面做得并不尽如人意。
+    </div>
+</div>
+</body>
+</html>

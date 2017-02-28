@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1 {width:400px; height:400px; background:#ccc; position:relative; left:100px; top:100px;}
+#div2 {width:100px; height:100px; background:red; position:absolute;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var disX=0;
+	var disY=0;
+	
+	oDiv2.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		var l=0;
+		var t=0;
+		
+		disX=oEvent.clientX-oDiv2.offsetLeft;
+	    disY=oEvent.clientY-oDiv2.offsetTop;
+		
+		document.onmousemove=function (ev)   //使用document,解决移动guokuai
+		{
+			var oEvent=ev||event;
+			
+			l=oEvent.clientX-disX;
+		    t=oEvent.clientY-disY;
+		
+		    if(l<50)
+			{
+				l=0;
+			}
+			else if(l>oDiv1.offsetWidth-oDiv2.offsetWidth)  //若网页中含有有了标准声明（即页面加上<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">这行代码，标准声明的存在会对document.body和document.documentElement的属性值有影响）时，则应该使用document.documentElement
+			{
+				l=oDiv1.offsetWidth-oDiv2.offsetWidth;
+			}
+		    if(t<50)
+			{
+				t=0;
+			}
+			else if(t>oDiv1.offsetHeight-oDiv2.offsetHeight)
+			{
+				t=oDiv1.offsetHeight-oDiv2.offsetHeight;
+			}
+			
+			oDiv2.style.left=l+'px';
+			oDiv2.style.top=t+'px';
+		};
+		
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;  //不留垃圾
+		}
+		
+		return false;//阻止默认事件，解决FF空DIV的拖拽BUG
+	};
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div id="div1"> 
+    <div id="div2"></div>
+</div>
+</body>
+</html>
