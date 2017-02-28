@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}    /*内边距(padding)、边框(border)和外边距(margin)*/
+#div1 {width:572px; height:256px; margin:100px auto; position:relative; background:red;overflow:hidden; border:10px dashed #FF3; } /*  dashed  虚线 ; dotted 点线  */
+/*#div1 {width:572px; height:256px; margin:100px auto; position:relative; background:red;overflow:hidden; border:medium double #FF3; } */
+#div1 ul { position:absolute; left:0; top:0;}
+#div1 ul li{float:left; width:143; height:256; list-style: none;}
+#div2 {width:496px; height:38px; margin:50px auto; position:relative; } /* 100*4+38*2+5*4=496  */
+#div2 ul { position:absolute; left:0; top:0;}
+#div2 ul li{float:left;display: block; width:38; height:38; list-style: none; margin:0 100px 0 100px; border:5px solid blue;} 
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var aLi=oUl.getElementsByTagName('li');
+	oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+	oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+	var speed=2;
+	
+	var timer=setInterval(move,10);
+	function move()
+	{
+		if(oUl.offsetLeft>0) 
+		{
+			oUl.style.left=-oUl.offsetWidth/2+'px';  
+		}
+		if(oUl.offsetLeft<-oUl.offsetWidth/2)
+		{
+			oUl.style.left='0';
+		}
+		oUl.style.left=oUl.offsetLeft+speed+'px';
+	}
+	oDiv.onmouseover=function()
+	{
+		clearInterval(timer);
+	};
+	oDiv.onmouseout=function()
+	{
+		timer=setInterval(move,10);;
+	};
+	var oDiv2=document.getElementById('div2');
+	var aLi2=oDiv2.getElementsByTagName('li');
+	
+	aLi2[0].onmouseover=function()
+	{
+		speed=-2;
+	};
+	aLi2[1].onmouseover=function()
+	{
+		speed=2;
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div2">
+    <ul>
+         <li><img src="img/arrow-left.gif"</li>
+         <li><img src="img/arrow-right.gif" </li>
+    </ul>
+</div>
+<div id="div1">
+    <ul>
+         <li><img src="number/11.jpg"</li>
+         <li><img src="number/22.jpg"</li>
+         <li><img src="number/33.jpg"</li>
+         <li><img src="number/44.jpg"</li>
+    </ul>
+</div>
+</body>
+</html>
