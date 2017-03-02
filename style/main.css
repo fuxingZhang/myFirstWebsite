@@ -457,3 +457,20 @@ body{
 .section .wrap:hover .out-bottom{
     transform: translateY(200px) rotateX(-90deg);
 }
+
+#carousel{
+        width:400px;
+        height:350px;
+        position:absolute;
+        margin-right: 100px;
+}
+#carousel img{
+        width:80%;
+        height:auto;
+        display:block;
+}
+.carousel{
+    width:400px;
+    height: 350px;
+    position: relative;
+}
