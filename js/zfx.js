@@ -1,10 +1,10 @@
 $(function(){
 	$(".topnav").hover(function(){
-		if (!$(this).find("ul").is(":animated")) {
-			$(this).find("ul").slideDown();
+		if (!$(this).children("ul").is(":animated")) {
+			$(this).children("ul").slideDown();
 		}
 	},function(){
-		$(this).find("ul").slideUp();
+		$(this).children("ul").slideUp();
 	});
 
 	// banner  横幅; 标语; 旗，旗帜; 大字标题;
